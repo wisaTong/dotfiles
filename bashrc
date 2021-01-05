@@ -26,15 +26,6 @@ alias cp='cp -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 
-__exit_code() {
-  local EXIT=$?
-  if [ $EXIT -eq 0 ]; then
-    echo -e '\e[0;36m' $EXIT
-  else 
-    echo -e '\e[0;91m' $EXIT
-  fi
-}
-
 __git_branch() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local BRANCH=$(
@@ -56,12 +47,8 @@ __git_status() {
   fi
 }
 
-__prompt_command() {
-  EXIT=$(__exit_code)
-  export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status)${EXIT}\[\e[1;35m\]λ\e[0m '
-}
+export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]λ\[\e[0m\] '
 
 # Autorun
-PROMPT_COMMAND=__prompt_command
 PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
 
