@@ -17,6 +17,8 @@ fi
 export TERMINAL='urxvtc'
 export EDITOR='vim'
 
+export PATH="$PATH:$HOME/bin"
+
 # Put your fun stuff here.
 alias l='ls -alsh'
 alias mv='mv -iv'
@@ -24,13 +26,42 @@ alias cp='cp -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -pv'
 
-wallp() {
-	ln -sf $(readlink -f $1) $HOME/.config/wallpaper
-	xwallpaper --zoom $HOME/.config/wallpaper
+__exit_code() {
+  local EXIT=$?
+  if [ $EXIT -eq 0 ]; then
+    echo -e '\e[0;36m' $EXIT
+  else 
+    echo -e '\e[0;91m' $EXIT
+  fi
+}
+
+__git_branch() {
+  if git rev-parse --git-dir >/dev/null 2>&1; then
+    local BRANCH=$(
+      git symbolic-ref --short HEAD | \
+      awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
+    )
+    echo " (${BRANCH})"
+  fi
+}
+
+__git_status() {
+  if [ -z $(__git_branch) ]; then
+    return
+  else
+    STATUS=$(git status 2>&1)
+    if [[ $STATUS == *'Changes not staged for commit'* ]]; then echo -n "!"; fi 
+    if [[ $STATUS == *'Changes to be committed'* ]]; then echo -n "*"; fi
+    if [[ $STATUS == *'Your branch is ahead'* ]]; then echo -n "?"; fi
+  fi
+}
+
+__prompt_command() {
+  EXIT=$(__exit_code)
+  export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status)${EXIT}\[\e[1;35m\]λ\e[0m '
 }
 
 # Autorun
-
-# pfetch env
+PROMPT_COMMAND=__prompt_command
 PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
 
