@@ -44,3 +44,11 @@ inoremap {} {}<left>
 inoremap {<cr> {<cr>}<esc>O
 inoremap {;<cr> {<cr>};<esc>O
 
+" plugins
+call plug#begin('~/.conf/vim/plugged')
+
+Plug 'arcticicestudio/nord-vim'
+
+call plug#end()
+
+colorscheme nord
