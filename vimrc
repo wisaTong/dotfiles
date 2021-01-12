@@ -45,7 +45,7 @@ inoremap {<cr> {<cr>}<esc>O
 inoremap {;<cr> {<cr>};<esc>O
 
 " plugins
-call plug#begin('~/.conf/vim/plugged')
+call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 
