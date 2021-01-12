@@ -1,7 +1,7 @@
 " dont try to be vi
 set nocompatible
 
-filetype plugin on
+filetype plugin indent on
 
 set undodir=$XDG_DATA_HOME/vim/undo//
 set directory=$XDG_DATA_HOME/vim/swap//
@@ -48,7 +48,38 @@ inoremap {;<cr> {<cr>};<esc>O
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
 call plug#end()
 
 colorscheme nord
+
+" gutentags configs
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_extra_args = ['--tag-relative=yes', '--fields=+ailmnS']
+let g:gutentags_ctags_exclude = [
+      \ '*/tests/*',
+      \ 'build',
+      \ 'dist',
+      \ 'bin',
+      \ 'node_modules',
+      \ 'bower_components',
+      \ 'cache',
+      \ 'compiled',
+      \ 'docs',
+      \ 'example',
+      \ 'bundle',
+      \ 'vendor',
+      \ '*.md',
+      \ '*-lock.json',
+      \ '*.lock',
+      \ '*bundle*.js',
+      \ '*build*.js',
+      \ 'tags*',
+      \ 'cscope.*',
+      \ ]
