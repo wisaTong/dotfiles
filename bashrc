@@ -18,7 +18,7 @@ export TERMINAL='urxvtc'
 export EDITOR='vim'
 
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$CARO_HOME/bin"  # cargo binary
+export PATH="$PATH:$CARGO_HOME/bin"  # cargo binary
 
 # Put your fun stuff here.
 alias l='ls -alsh'
