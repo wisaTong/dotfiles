@@ -24,7 +24,7 @@ export PATH="$PATH:$CARGO_HOME/bin"  # cargo binary
 alias l='ls -alsh'
 alias mv='mv -iv'
 alias cp='cp -iv'
-alias rm='rm -iv'
+alias rm='rm -Iv'
 alias mkdir='mkdir -pv'
 
 __git_branch() {
