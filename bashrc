@@ -27,6 +27,9 @@ alias cp='cp -iv'
 alias rm='rm -Iv'
 alias mkdir='mkdir -pv'
 
+# Disable Ctrl + S terminal pause
+stty -ixon 
+
 __git_branch() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local BRANCH=$(
