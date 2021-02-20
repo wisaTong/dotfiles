@@ -1,6 +1,9 @@
 " dont try to be vi
 set nocompatible
 
+" fix capital O delay
+set noesckeys
+
 filetype plugin indent on
 
 set undodir=$XDG_DATA_HOME/vim/undo//
@@ -30,6 +33,9 @@ set smarttab
 set path+=**
 set wildmenu
 
+" completion
+set completeopt=menuone,preview,noinsert
+
 " line numbering
 set ruler
 set relativenumber
@@ -49,6 +55,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
