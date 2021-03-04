@@ -4,6 +4,10 @@ set nocompatible
 " fix capital O delay
 set noesckeys
 
+" leader mapping
+let mapleader = ","
+set showcmd
+
 filetype plugin indent on
 
 set undodir=$XDG_DATA_HOME/vim/undo//
@@ -12,9 +16,6 @@ set backupdir=$XDG_DATA_HOME/vim/backup//
 set viewdir=$XDG_DATA_HOME/vim/view//
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-
-" leader mapping
-let mapleader = ","
 
 " syntax hightlighting
 syntax on
@@ -41,11 +42,20 @@ set ruler
 set relativenumber
 set number
 
+" leader map
+nnoremap <Leader>; A;<esc>
+
 " auto closing brackets
 inoremap "" ""<left>
 inoremap '' ''<left>
 inoremap () ()<left>
+inoremap (<cr> (<cr>)<esc>O
+inoremap (;<cr> (<cr>);<esc>O
+
 inoremap [] []<left>
+inoremap [<cr> [<cr>]<esc>O
+inoremap [;<cr> [<cr>];<esc>O
+
 inoremap {} {}<left>
 inoremap {<cr> {<cr>}<esc>O
 inoremap {;<cr> {<cr>};<esc>O
@@ -56,6 +66,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
