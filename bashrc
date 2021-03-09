@@ -18,7 +18,7 @@ export TERMINAL='urxvtc'
 export EDITOR='vim'
 
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$CARGO_HOME/bin"  # cargo binary
+export PATH="$CARGO_HOME/bin:$PATH"  # cargo binary
 
 # Put your fun stuff here.
 alias l='ls -alsh'
@@ -56,3 +56,4 @@ export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_sta
 # Autorun
 PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
 
+source "/home/wendel/.local/share/cargo/env"

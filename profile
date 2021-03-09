@@ -10,6 +10,7 @@ export XDG_DESKTOP_DIR=$HOME
 export LESSHISTFILE=-
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
 export PSQL_HISTORY=$XDG_CACHE_HOME/pg/psql_history
 export RXVT_SOCKET=$XDG_RUNTIME_DIR/urxvtd
@@ -31,3 +32,4 @@ fi
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
 	exec startx
 fi
+source "/home/wendel/.local/share/cargo/env"
