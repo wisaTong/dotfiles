@@ -64,13 +64,40 @@ inoremap {;<cr> {<cr>};<esc>O
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'neoclide/coc.nvim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
 colorscheme nord
+
+" Code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Trigger completion with <tab>
+" found in :help completion
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" rustfmt on save
+let g:rustfmt_autosave = 1
+
+" goyo configs
+let g:goyo_linenr = 1
 
 " gutentags configs
 let g:gutentags_add_default_project_roots = 0
