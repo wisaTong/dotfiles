@@ -74,6 +74,8 @@ call plug#end()
 
 colorscheme nord
 
+call coc#config("rust-analyzer.diagnostics.disabled", ["unresolved-import"])
+
 " Code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
