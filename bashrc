@@ -21,7 +21,7 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$CARGO_HOME/bin:$PATH"  # cargo binary
 
 # Put your fun stuff here.
-alias l='ls -alsh'
+alias l='ls -alsh --group-directories-first'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias rm='rm -Iv'
