@@ -19,6 +19,7 @@ export EDITOR='vim'
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$CARGO_HOME/bin:$PATH"  # cargo binary
+export PATH="/home/wendel/go/bin:$PATH" # go binary
 
 # Put your fun stuff here.
 alias l='ls -alsh --group-directories-first'
