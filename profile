@@ -19,6 +19,7 @@ export VSCODE_PORTABLE=$XDG_DATA_HOME/vscode
 export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
 export HISTFILE=$XDG_DATA_HOME/bash/history
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export REDISCLI_HISTFILE=$XDG_DATA_HOME/redis/rediscli_history
 
 # alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 

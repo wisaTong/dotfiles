@@ -27,6 +27,7 @@ alias cp='cp -iv'
 alias rm='rm -Iv'
 alias mkdir='mkdir -pv'
 
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
@@ -63,3 +64,5 @@ export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_sta
 PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
 
 source "/home/wendel/.local/share/cargo/env"
+# load LaTex env
+source $XDG_CONFIG_HOME/texlive/texmfrc
