@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-# cleanup
+# xdg compat
 export LESSHISTFILE=-
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export CARGO_HOME=$XDG_DATA_HOME/cargo
@@ -19,6 +19,8 @@ export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
 export HISTFILE=$XDG_DATA_HOME/bash/history
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export REDISCLI_HISTFILE=$XDG_DATA_HOME/redis/rediscli_history
+export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 # alias wget='wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts'
 
