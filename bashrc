@@ -32,6 +32,8 @@ alias mkdir='mkdir -pv'
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
+# doas completion
+complete -cf doas
 # disable special char escape
 shopt -s direxpand
 
