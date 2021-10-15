@@ -22,7 +22,7 @@ export PATH="$CARGO_HOME/bin:$PATH"  # cargo binary
 export PATH="/home/wendel/go/bin:$PATH" # go binary
 
 # Put your fun stuff here.
-alias l='ls -alsh --group-directories-first'
+alias l='ls --group-directories-first -alshAX'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias rm='rm -Iv'
