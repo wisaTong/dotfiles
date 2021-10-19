@@ -69,3 +69,7 @@ PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
 source "/home/wendel/.local/share/cargo/env"
 # load LaTex env
 source $XDG_CONFIG_HOME/texlive/texmfrc
+
+export PATH=$PATH:/home/wendel/bin
+
+source '/home/wendel/.local/share/azure-cli/az.completion'
