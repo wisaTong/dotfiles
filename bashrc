@@ -73,3 +73,8 @@ source $XDG_CONFIG_HOME/texlive/texmfrc
 export PATH=$PATH:/home/wendel/bin
 
 source '/home/wendel/.local/share/azure-cli/az.completion'
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/wendel/app/google-cloud-sdk/path.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/wendel/app/google-cloud-sdk/completion.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/completion.bash.inc'; fi
