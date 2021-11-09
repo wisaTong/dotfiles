@@ -72,9 +72,30 @@ source $XDG_CONFIG_HOME/texlive/texmfrc
 
 export PATH=$PATH:/home/wendel/bin
 
+# az auto complete
 source '/home/wendel/.local/share/azure-cli/az.completion'
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/wendel/app/google-cloud-sdk/path.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/wendel/app/google-cloud-sdk/completion.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/completion.bash.inc'; fi
+
+# dotnet bullshit
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:/$DOTNET_ROOT
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/wendel/.local/share/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/wendel/.local/share/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/wendel/.local/share/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/wendel/.local/share/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
