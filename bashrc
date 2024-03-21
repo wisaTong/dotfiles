@@ -15,31 +15,24 @@ if [[ $- != *i* ]] ; then
 fi
 
 export TERMINAL='urxvtc'
-export EDITOR='vim'
-
 export PATH="$PATH:$HOME/bin"
-export PATH="$CARGO_HOME/bin:$PATH"  # cargo binary
-export PATH="/home/wendel/go/bin:$PATH" # go binary
 
 # Put your fun stuff here.
 alias l='ls --group-directories-first -alshAX'
 alias mv='mv -iv'
 alias cp='cp -iv'
 alias rm='rm -Iv'
-alias mkdir='mkdir -pv'
-
 
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
   . /usr/share/bash-completion/bash_completion
-# doas completion
-complete -cf doas
 # disable special char escape
 shopt -s direxpand
 
 # Disable Ctrl + S terminal pause
 stty -ixon 
 
+# PS1
 __git_branch() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local BRANCH=$(
@@ -62,40 +55,3 @@ __git_status() {
 }
 
 export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]λ\[\e[0m\] '
-
-# Autorun
-PF_INFO="title os host kernel uptime pkgs memory shell editor wm palette" pfetch
-
-source "/home/wendel/.local/share/cargo/env"
-# load LaTex env
-source $XDG_CONFIG_HOME/texlive/texmfrc
-
-export PATH=$PATH:/home/wendel/bin
-
-# az auto complete
-source '/home/wendel/.local/share/azure-cli/az.completion'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/wendel/app/google-cloud-sdk/path.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/wendel/app/google-cloud-sdk/completion.bash.inc' ]; then . '/home/wendel/app/google-cloud-sdk/completion.bash.inc'; fi
-
-# dotnet bullshit
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:/$DOTNET_ROOT
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/wendel/.local/share/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/wendel/.local/share/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/wendel/.local/share/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/wendel/.local/share/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
