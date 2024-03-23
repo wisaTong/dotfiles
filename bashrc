@@ -17,6 +17,17 @@ fi
 export TERMINAL='urxvtc'
 export PATH="$PATH:$HOME/bin"
 
+# xdg home dirs
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOE=$HOME/.local/state
+
+# quality of life stuff
+export LESSHISTFILE=-
+export HISTFILE=$XDG_DATA_HOME/bash/history
+export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
+
 # Put your fun stuff here.
 alias l='ls --group-directories-first -alshAX'
 alias mv='mv -iv'
