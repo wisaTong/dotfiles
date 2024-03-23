@@ -15,7 +15,7 @@ if [[ $- != *i* ]] ; then
 fi
 
 export TERMINAL='urxvtc'
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # xdg home dirs
 export XDG_CONFIG_HOME=$HOME/.config
